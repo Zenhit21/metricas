@@ -1,0 +1,30 @@
+.custom-menu {
+    margin-left: 0%;
+    width: 100%;
+}
+
+.list-group-item {
+    font-size: 10px;
+    text-align: left;
+    margin-left: 0;
+}
+
+div.col-md-3 {
+    border-radius: 5px green;
+} 
+
+.container-mt-4 {
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.text-center-mb-4 {
+    text-align: left;
+    margin-left: 0;
+}
+
+#crud-content {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    min-height: 300px;
+}
