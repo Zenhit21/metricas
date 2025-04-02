@@ -1,9 +1,13 @@
 <?php
-$host = "localhost"; // Cambia de 127.0.0.1 a localhost
-$port = 3307; // Si el otro servidor está en 3306
+$host = "localhost"; 
+$port = 3307; 
 $user = "root";
 $password = "";
-$dbname = "proyecto_informe_metricas";
+$dbname = "Informe_Metricas_DB";
 
 $conn = new mysqli($host, $user, $password, $dbname, $port);
+if ($conn->connect_error) {
+    error_log("Error de conexión: " . $conn->connect_error);
+    die("Error de conexión");
+}
 ?>

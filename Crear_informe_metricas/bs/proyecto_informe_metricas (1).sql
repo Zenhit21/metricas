@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-03-2025 a las 20:29:59
+-- Tiempo de generación: 31-03-2025 a las 20:01:33
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -31,8 +31,8 @@ CREATE TABLE `Campaña` (
   `id_campaña` int(11) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `estado` tinyint(1) NOT NULL DEFAULT 1
+  `nombre_campaña` varchar(255) NOT NULL,
+  `campaña_estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 -- --------------------------------------------------------
@@ -45,7 +45,7 @@ CREATE TABLE `Cliente` (
   `id_cliente` int(11) NOT NULL,
   `rut` varchar(20) NOT NULL,
   `razon_social` varchar(255) NOT NULL,
-  `estado` tinyint(1) NOT NULL DEFAULT 1
+  `cliente_estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 -- --------------------------------------------------------
@@ -56,8 +56,8 @@ CREATE TABLE `Cliente` (
 
 CREATE TABLE `Metrica` (
   `id_metrica` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `estado` tinyint(1) NOT NULL DEFAULT 1
+  `nombre_metrica` varchar(255) NOT NULL,
+  `metrica_estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 -- --------------------------------------------------------
@@ -68,8 +68,8 @@ CREATE TABLE `Metrica` (
 
 CREATE TABLE `RRSS` (
   `id_rrss` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `estado` tinyint(1) NOT NULL DEFAULT 1
+  `nombre_rrss` varchar(255) NOT NULL,
+  `rrss_estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 -- --------------------------------------------------------
@@ -80,20 +80,21 @@ CREATE TABLE `RRSS` (
 
 CREATE TABLE `Usuarios` (
   `id_usuario` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
+  `nombre_usuario` varchar(255) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `usuario` varchar(50) NOT NULL,
   `clave` varchar(255) NOT NULL,
   `perfil` tinyint(1) NOT NULL CHECK (`perfil` in (1,2)),
-  `estado` tinyint(1) NOT NULL DEFAULT 1 CHECK (`estado` in (0,1))
+  `usuario_estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `Usuarios`
 --
 
-INSERT INTO `Usuarios` (`id_usuario`, `nombre`, `apellido`, `usuario`, `clave`, `perfil`, `estado`) VALUES
-(1, 'Nicolás', 'Matamala', 'nmatamala', '1234', 1, 1);
+INSERT INTO `Usuarios` (`id_usuario`, `nombre_usuario`, `apellido`, `usuario`, `clave`, `perfil`, `usuario_estado`) VALUES
+(1, 'Nicolas', 'Matamala', 'nmatamala', '1234', 1, 1),
+(2, 'Sebastian', 'Soto', 'ssoto', '12345', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -123,7 +124,7 @@ ALTER TABLE `Metrica`
 --
 ALTER TABLE `RRSS`
   ADD PRIMARY KEY (`id_rrss`),
-  ADD UNIQUE KEY `nombre` (`nombre`);
+  ADD UNIQUE KEY `nombre` (`nombre_rrss`);
 
 --
 -- Indices de la tabla `Usuarios`
@@ -164,7 +165,7 @@ ALTER TABLE `RRSS`
 -- AUTO_INCREMENT de la tabla `Usuarios`
 --
 ALTER TABLE `Usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

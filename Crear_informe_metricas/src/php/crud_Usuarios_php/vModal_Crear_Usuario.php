@@ -1,4 +1,3 @@
-<?php include '/guardar_usuarios.php'; ?>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -8,10 +7,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-crear-usuario-modal">
+                <form id="form-crear-usuario-modal" onsubmit="event.preventDefault(); guardarUsuario()">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre_modal_crear_usuario" name="nombre">
+                        <input type="text" class="form-control" id="nombre_modal_crear_usuario" name="nombre_usuario">
                     </div>
                     <div class="mb-3">
                         <label for="apellido" class="form-label">Apellido</label>

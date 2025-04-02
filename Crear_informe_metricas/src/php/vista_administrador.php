@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Plataforma</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/style_lista_usuarios.css">
+    <link rel="stylesheet" href="../../css/style.css?v=<?php echo time(); ?>">
+    
 </head>
 <body>
-    <div class="container mt-4">
-        <h3 class="text-center mb-4">Seleccione una opción</h3>
+    <div class="container_mt-4">
+        <h3 class="text-center_mb-4">Seleccione una opción</h3>
         <div class="row">
             <!-- Menú de botones alineado a la izquierda -->
             <div class="col-md-3">
@@ -40,15 +40,15 @@
                             </tr>
                         </thead>
                         <tbody id="tablaUsuarios">
-                            <!-- Aquí se llenarán los datos -->
+                            <!-- DATOS JS -->
                         </tbody>
                     </table>
-                    <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <?php include __DIR__.'/crud_Usuarios_php/vModal_Crear_Usuario.php';?> 
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Agregar Usuario
-                        </button>   
-                        <?php include '../php/crud_Usuarios_php/vModal_Crear_Usuario.php'; ?>
-                </div>
+                    </button>   
+                </div>        
+            </div>
                 <div id="rrss" class="crud-container" style="display: none;">
                     <h3>Mantenedor de RRSS</h3>
                     <p>Contenido aquí...</p>
@@ -76,10 +76,9 @@
             </div>
         </div>
     </div>
-
-
-    <script src="../../js/crud_Usuarios_js/crear_Usuario.js" async></script>
-    <script src="../../js/vista_Crud.js" async></script>
+    <?php include __DIR__.'/crud_Usuarios_php/vModal_Editar_Usuario.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/vista_Crud.js"></script>
+    <script src="../../js/crud_Usuarios_js/crear_Usuario.js"></script>
 </body>
 </html>

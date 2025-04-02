@@ -1,4 +1,5 @@
 <?php
+// CAMBIAR EL ACCESO DE LA CONTRASEÑA, SOLO SE PERMITE A NMATAMALA 1234
 session_start();
 require_once __DIR__ . "/conexion.php";  // Asegúrate de que la ruta esté correcta
 
@@ -7,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $clave = trim($_POST['clave']);
 
     if (!empty($usuario) && !empty($clave)) {
-        $sql = "SELECT id_usuario, usuario, clave, perfil FROM Usuarios WHERE usuario = ? AND estado = 1";
+        $sql = "SELECT id_usuario, usuario, clave, perfil FROM Usuarios WHERE usuario = ? AND usuario_estado = 1";
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bind_param("s", $usuario);
             $stmt->execute();
